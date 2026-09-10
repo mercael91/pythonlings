@@ -21,7 +21,7 @@ cases = _ns.get("cases", [])
 assert len(cases) >= 3, "cases should hold at least 3 (input, expected) pairs"
 
 # run a direct spot check
-assert abs(fahrenheit_to_celsius(32) - 0.0) < 1e-6
-assert abs(fahrenheit_to_celsius(212) - 100.0) < 1e-6
-assert abs(fahrenheit_to_celsius(-40) - (-40.0)) < 1e-6
+assert abs(fahrenheit_to_celsius(32) - 0.0) < 1e-6, f"fahrenheit_to_celsius(32) should be 0.0, got {fahrenheit_to_celsius(32)}"
+assert abs(fahrenheit_to_celsius(212) - 100.0) < 1e-6, f"fahrenheit_to_celsius(212) should be 100.0, got {fahrenheit_to_celsius(212)}"
+assert abs(fahrenheit_to_celsius(-40) - (-40.0)) < 1e-6, f"fahrenheit_to_celsius(-40) should be -40.0, got {fahrenheit_to_celsius(-40)}"
 print("testing8 ✓")
