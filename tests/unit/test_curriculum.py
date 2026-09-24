@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from pythonlings.core import curriculum
 
 
@@ -35,12 +37,28 @@ def test_init_workspace_refuses_non_empty_directory(tmp_path: Path) -> None:
     target.mkdir()
     (target / "notes.txt").write_text("keep me", encoding="utf-8")
 
-    try:
+    with pytest.raises(curriculum.WorkspaceError) as excinfo:
         curriculum.init_workspace(target)
-    except curriculum.WorkspaceError as exc:
-        assert "isn't empty and isn't a pythonlings workspace" in str(exc)
-    else:
-        raise AssertionError("expected WorkspaceError")
+
+    assert "isn't empty and isn't a pythonlings workspace" in str(excinfo.value)
+
+
+def test_init_workspace_rejects_curriculum_source(tmp_path: Path) -> None:
+    src_root = curriculum.source_root().resolve()
+
+    with pytest.raises(curriculum.WorkspaceError) as excinfo:
+        curriculum.init_workspace(src_root)
+
+    assert "cannot init the curriculum source" in str(excinfo.value)
+
+
+def test_init_workspace_rejects_curriculum_source_with_force() -> None:
+    src_root = curriculum.source_root().resolve()
+
+    with pytest.raises(curriculum.WorkspaceError) as excinfo:
+        curriculum.init_workspace(src_root, force=True)
+
+    assert "cannot init the curriculum source" in str(excinfo.value)
 
 
 def test_force_init_preserves_existing_gitignore_entries(tmp_path: Path) -> None:
