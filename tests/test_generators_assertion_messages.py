@@ -6,6 +6,8 @@ CHECKS = [
     "checks/generators/generators1.py",
     "checks/generators/generators3.py",
     "checks/generators/generators6.py",
+    "checks/generators/generators7.py",
+    "checks/generators/generators8.py",
 ]
 
 
