@@ -1,8 +1,8 @@
 # Functions
 
-Source: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+Source: https://docs.python.org/3.9/tutorial/controlflow.html#defining-functions
 
-This local reference is generated from the official Python documentation and trimmed for pythonlings.
+This local reference is generated from the official Python 3.9 documentation and trimmed for pythonlings.
 
 `def` creates reusable behavior with parameters, return values, and optional defaults.
 
@@ -51,7 +51,7 @@ variables, named in a `global` statement, or, for variables of enclosing
 
 ## More reference
 
-Source: https://docs.python.org/3/reference/compound_stmts.html#function-definitions
+Source: https://docs.python.org/3.9/reference/compound_stmts.html#function-definitions
 
 Function definition syntax including parameters, annotations, and decorators.
 
@@ -62,7 +62,7 @@ The standard type hierarchy):
 
 ```python
 
-funcdef: [decorators] "def" funcname [type_params] "(" [parameter_list] ")"
+funcdef: [decorators] "def" funcname "(" [parameter_list] ")"
 ["->" expression] ":" suite
 decorators: decorator+
 decorator: "@" assignment_expression NEWLINE
