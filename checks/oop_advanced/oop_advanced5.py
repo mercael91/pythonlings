@@ -1,3 +1,4 @@
 playlist = Playlist(["one", "two", "three"])
-assert len(playlist) == 3
+count = len(playlist)
+assert count == 3, f"expected len(playlist) == 3, got {count!r}"
 print("oop_advanced5 ok")
